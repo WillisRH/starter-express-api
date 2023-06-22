@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Ping</title>
+  <style>
+    .circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .green {
+      background-color: green;
+    }
+    .yellow {
+      background-color: yellow;
+    }
+    .red {
+      background-color: red;
+    }
+  </style>
+  <script>
+    function measurePing() {
+      const startTime = new Date().getTime();
+      fetch('/ping').then((response) => {
+        const endTime = new Date().getTime();
+        const ping = endTime - startTime;
+        displayPing(ping);
+      });
+    }
+
+    function displayPing(ping) {
+      const pingElement = document.getElementById('ping');
+      pingElement.textContent = ping + 'ms';
+
+      const circleElement = document.getElementById('circle');
+      circleElement.classList.remove('green', 'yellow', 'red');
+
+      if (ping < 100) {
+        circleElement.classList.add('green');
+      } else if (ping < 500) {
+        circleElement.classList.add('yellow');
+      } else {
+        circleElement.classList.add('red');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>User Ping</h1>
+  <button onclick="measurePing()">Measure Ping</button>
+  <div>
+    <div id="circle" class="circle"></div>
+    <span id="ping"></span>
+  </div>
+</body>
+</html>
