@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confess Approval</title>
+    <link href="/css/approval.css" rel="stylesheet" />
+    <meta content="Submitted Confess" property="og:title" />
+	<meta content="List of submitted confesses" property="og:description" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="title">Submitted Confesses</h1>
+    <h3 class="subtitle">Total Confesses : <span><%= confesses.length %></span></h3>
+    <h3><%= locals.msg %></h3>
+    <!-- cuman 1 data, cara mapnya gimana, yo nda tau kan saya bukan user mongo-->
+    <!-- ini array dia ke detectnya coba kira kira gimana array -->
+    <!-- kyk table askme dulu aja coba -->
+
+    <div class="container-for-grid">
+    <ul class="confess-grid">
+    <% confesses.forEach(confess => { %>
+        <li>
+            <form action="/create-image-and-post" method="post">
+                <div class="confess-info">
+                    <h1 class="con-id"><%= confess.id %></h1>
+                    <h3>From: <%= confess.from %></h3>
+                    <h3>To: <%= confess.to %></h3>
+                    <h3>Message: <%= confess.message %></h3>
+                </div>
+                <input type="hidden" name="from" value="<%= confess.from %>" />
+                <input type="hidden" name="to" value="<%= confess.to %>" />
+                <input type="hidden" name="message" value="<%= confess.message %>" />
+                <input type="hidden" name="id" value="<%= confess.id %>" />
+                <button id="post" type="submit">Post it</button>
+            </form>
+            <form action="/delete-confess/<%= confess.id %>" method="get">
+                <button id="delete" type="submit" >Delete</button>
+            </form>
+        </li>
+        <!-- tuh wil action deletenya -->
+        <!-- utiwi css sori gua abis main mc its okay kok error yak -->
+        <!-- bukan react bro 💀 -->
+    <% }) %>
+    </ul>
+</div>
+    <!-- 💀 mb bro -->
+    <!-- tinggal css :> -->
+    <script src="/js/firefly.js"></script>
+    <script>
+        
+        (function() {
+            fireFlies({
+                "number_flies": 100,
+                "color": "#fff"
+            })
+        })();
+    </script>
+</body>
+</html>

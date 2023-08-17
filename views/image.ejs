@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generated Image</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://cdn1-production-images-kly.akamaized.net/4tuj4tEufnrZf5Hb_PtEuS3xVQs=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2287504/original/004792800_1532239884-Suku_pribumi_yang_mengisolasi_diri_di_hutan_hujan_Amazon__Brasil__Wikimedia__Creative_Commons_.jpg') center/cover no-repeat;
+        }
+        #textContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0.8;
+        }
+        #imageCanvas {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="textContainer">
+        <canvas id="imageCanvas" width="800" height="400"></canvas>
+    </div>
+    <button id="saveButton">Save Image</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-toBlob/3.0.0/canvas-to-blob.min.js"></script>
+    <script>
+        const canvas = document.getElementById("imageCanvas");
+        const ctx = canvas.getContext("2d");
+        
+        // Clear canvas with white background
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Text properties
+        const from = "<%= locals.from %>";
+        const to = "<%= locals.to %>";
+        const message = "<%= locals.message %>";
+        
+        // Draw text on the canvas
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "black";
+        ctx.textAlign = "center";
+        ctx.fillText(`From: ${from}`, canvas.width / 2, 100);
+        ctx.fillText(`To: ${to}`, canvas.width / 2, 150);
+        ctx.fillText(`Message: ${message}`, canvas.width / 2, 200);
+
+        // Save canvas as image when the button is clicked
+        const saveButton = document.getElementById("saveButton");
+        saveButton.addEventListener("click", () => {
+            canvas.toBlob((blob) => {
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = "generated_image.png";
+                link.click();
+            }, "image/png");
+        });
+    </script>
+</body>
+</html>

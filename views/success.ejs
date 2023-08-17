@@ -1,0 +1,20 @@
+<h1>Terimakasih sudah mengirim!</h1>
+<h2 id="authorname" class="authorname">~Osis SMAN 12</h2>
+
+<script>
+	let countdown = 2; // countdown logic
+
+	function updateCountdown() {
+		const countdownEl = document.getElementById("countdown");
+		countdownEl.innerHTML = countdown;
+		countdown--;
+		if (countdown < 0) {
+			clearInterval(intervalId);
+			window.location.href = "/";
+		}
+	}
+  
+	const intervalId = setInterval(updateCountdown, 1000);
+</script>
+
+<p>Redirecting to homepage in <span id="countdown">3</span> seconds...</p>

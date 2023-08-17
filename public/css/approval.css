@@ -1,0 +1,107 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	width: 100%;
+	min-height: 100vh;
+	background-image: linear-gradient(to top, black, rgb(109, 109, 109)),
+		url("https://cdn.glitch.global/f05388dc-b53e-4cda-809d-b5caadf224eb/5ce49eac-2a97-43b1-857b-9c683531e612.image.png?v=1691900536026");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-blend-mode: multiply;
+	z-index: -100;
+}
+
+.title {
+	padding-top: 100px;
+	text-align: center;
+	color: white;
+	font-family: "Poppins";
+}
+
+.subtitle {
+	text-align: center;
+	color: white;
+	font-family: "Poppins";
+}
+
+.container-for-grid {
+	margin-top: 30px;
+}
+
+.confess-grid {
+	display: flex;
+	list-style-type: none;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.confess-grid li {
+	background-color: rgba(0, 76, 255, 0.244);
+	margin: 20px;
+	padding: 20px;
+	border-radius: 5px;
+	max-width: 300px;
+}
+
+.confess-grid li .confess-info {
+	color: white;
+	font-family: "Poppins";
+}
+
+.con-id {
+	font-size: 17px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: white;
+	color: black;
+	width: 70px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.confess-grid li .confess-info h3 {
+	font-size: 20px;
+	padding: 5px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.confess-grid li button {
+	font-size: large;
+	width: 100%;
+	margin-bottom: 15px;
+	border: none;
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+	background-size: 200% auto;
+	z-index: 10;
+}
+/* pojok kiri atas bisa di kasih tulisan express-autopost */
+/* manuk akal coy mending dibawah yaudah yang penting ada wmnya :smile:*/
+
+.confess-grid li button:hover {
+	font-size: x-large;
+}
+
+#post {
+	background-image: linear-gradient(to right, #c13584, #405de6);
+}
+
+#post:hover {
+	background-position: right center;
+}
+
+#delete {
+	background-image: linear-gradient(to right, rgb(103, 0, 0), rgb(255, 34, 0));
+}
+
+#delete:hover {
+	background-position: right center;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Confess website avvv</title>
+        <link href="/css/confess.css" rel="stylesheet" />
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div id="particles-js"></div>
+        <div class="panel">
+            <h1 class="title">Kirim confess kamu!</h1>
+            <div class="subpanel">
+                <form action="/new-confess" method="post">
+                    <label for="from">From</label>
+                    <input id="from" type="text" placeholder="aku" name="from"/>
+                    <label for="to">To</label>
+                    <input id="to" type="text" placeholder="kamu" name="to"/>
+                    <label for="msg">Your message to them</label>
+                    <textarea
+                        id="message"
+                        placeholder="apanih pesannya hehe"
+                        maxlength="200"
+                        name="message"
+                    ></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <script src="/js/particles.js"></script>
+        <script src="/js/app.js"></script>
+    </body>
+</html>
